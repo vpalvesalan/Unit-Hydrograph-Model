@@ -1,0 +1,30 @@
+---
+title: "Stream Gauge USGS Data Download"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r Install and load packages, include=TRUE, echo=TRUE, results='markup'}
+# Install USGA Data Service API if it not already installed
+if (!'dataRetrieval' %in% installed.packages()) {
+  library(remotes)
+  install_github("DOI-USGS/dataRetrieval",
+                 build_vignettes = TRUE, 
+                 build_opts = c("--no-resave-data",
+                                "--no-manual"))
+} 
+
+# Load package
+library("dataRetrieval")
+```
+
+#### Session info
+
+```{r Session info, echo=TRUE}
+sessionInfo()
+```
+
