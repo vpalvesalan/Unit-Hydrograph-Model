@@ -113,12 +113,14 @@ def download_large_file(url: str, destination: str, max_retries: int =3, chunk_s
     Downloads a file from a given URL in chunks, with support for resuming the download if interrupted and retrying on errors.
 
     Parameters:
+    -----------
         url (str): The URL of the file to download.
         destination (str): The local file path where the downloaded file will be saved.
         max_retries (int): The maximum number of times to retry the download on error. Default is 3.
         chunk_size (int): The size of chunks to download the file in bytes. Default is 1 MB.
 
     Functionality:
+    --------------
         - Checks if a partially downloaded file exists at the destination.
         - Resumes the download from where it left off using the 'Range' HTTP header.
         - Downloads the file in chunks (default: 10 MB) to minimize memory usage.
@@ -127,11 +129,13 @@ def download_large_file(url: str, destination: str, max_retries: int =3, chunk_s
         - Ensures compatibility with servers supporting HTTP range requests.
 
     Note:
+    -----
         - Ensure the server supports partial downloads (HTTP status code 206).
         - If the server does not support range requests, the download will restart from the beginning.
         - The function will retry up to 3 times on certain connection errors before failing.
 
     Raises:
+    -------
         requests.exceptions.RequestException: If there is an issue with the HTTP request beyond retry attempts.
     """
 
