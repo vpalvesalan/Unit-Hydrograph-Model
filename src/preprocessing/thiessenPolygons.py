@@ -1,6 +1,6 @@
 import geopandas as gpd
 import numpy as np
-from shapely.geometry import Polygon, MultiPolygon, Point, box
+from shapely.geometry import Polygon
 from shapely.ops import unary_union
 from scipy.spatial import Voronoi, ConvexHull
 import math
@@ -180,5 +180,8 @@ def derive_thiessen_polygons(gdf_points, clipping_gdf, preserve_attribute):
     # Clean any remaining artifacts
     thiessen_clipped['geometry'] = thiessen_clipped.geometry.buffer(0)
     thiessen_clipped = thiessen_clipped[~thiessen_clipped.geometry.is_empty]
+
+    #Merge polygons with same ID
+    thiessen_clipped = thiessen_clipped.dissolve(by= preserve_attribute, as_index=False)
     
     return thiessen_clipped
