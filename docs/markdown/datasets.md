@@ -39,7 +39,7 @@ Shapefiles were used to represent boundaries, stream gauge locations, and precip
       - U2 and U4 WB: [available here](https://www.sciencebase.gov/catalog/item/5a1632b3e4b09fc93dd171de).  
 
 - **Stream Gauge Stations:**  
-  - **Source:** Downloaded from the [USGS Water Watch Data Service](https://waterwatch.usgs.gov/?id=wwds_shp).  
+  - **Source:** Downloaded from [USGS here](https://www.sciencebase.gov/catalog/item/63140610d34e36012efa3836).  
   - **Format:** `.shp`  
   - **Purpose:** Identify stream gauge locations within the study region.  
   - **Relevant Attributes:** [Provide specific Relevant Attributes here]  
