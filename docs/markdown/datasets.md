@@ -51,9 +51,9 @@ Shapefiles were used to represent boundaries, stream gauge locations, and precip
   - **Relevant Attributes:** [Provide specific Relevant Attributes here]
 
 - **Dam Location:**  
-  - **Source:** [National Inventory of Dams](https://nid.sec.usace.army.mil/#/). Shapefile [available here](https://resilience.climate.gov/datasets/fedmaps::national-inventory-of-dams-1/about).
+  - **Source:** [National Inventory of Dams](https://nid.sec.usace.army.mil/), from U.S. Army Corps of Engineers [available here](https://resilience.climate.gov/datasets/fedmaps::national-inventory-of-dams-1/about).
   - **Format:** `.shp` 
-  - **Purpose:** Identify which watershed flow is regulated by dams
+  - **Purpose:** Identify which watershed flow is regulated by dam.
   - **Relevant Attributes:** [Provide specific Relevant Attributes here]
   - **Documentation:** [available here](https://resilience.climate.gov/datasets/fedmaps::national-inventory-of-dams-1/about).
 
