@@ -51,10 +51,10 @@ Shapefiles were used to represent boundaries, stream gauge locations, and precip
   - **Relevant Attributes:** [Provide specific Relevant Attributes here]
 
 - **Dam Location:**  
-  - **Source:** [National Inventory of Dams](https://nid.sec.usace.army.mil/), from U.S. Army Corps of Engineers [available here](https://resilience.climate.gov/datasets/fedmaps::national-inventory-of-dams-1/about).
-  - **Format:** `.shp` 
-  - **Purpose:** Identify which watershed flow is regulated by dam.
-  - **Relevant Attributes:** [Provide specific Relevant Attributes here]
+  - **Source:** [National Inventory of Dams](https://nid.sec.usace.army.mil/), from U.S. Army Corps of Engineers [available here](https://nid.sec.usace.army.mil/#/downloads).
+  - **Format:** `.gpkg` 
+  - **Purpose:** Identify which watershed flow is regulated by dam and how it might influes Clark's UH parameters.
+  - **Relevant Attributes:** ['name', 'nidId', 'riverName','damHeight', 'damLength', 'volume', 'maxStorage', 'normalStorage', 'surfaceArea', 'drainageArea','maxDischarge', 'geometry']
   - **Documentation:** [available here](https://resilience.climate.gov/datasets/fedmaps::national-inventory-of-dams-1/about).
 
 - **World UTM Grid**:
