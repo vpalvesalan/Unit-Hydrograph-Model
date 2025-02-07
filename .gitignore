@@ -1,5 +1,6 @@
 venv/
-data/
+data/raw
+data/clean/geo
 __pycache__/ 
 *.pyc
 *.DS_Store
