@@ -122,16 +122,16 @@ Tabular datasets were used to analyze temporal dynamics and provide targets for 
   - **Relevant Attributes:** [Provide specific Relevant Attributes here]  
 
 - **Precipitation Data:**  
-  - **Source:** NOAA, avialable through Rest API. [Documentation available here](https://www.ncdc.noaa.gov/cdo-web/webservices/v2#gettingStarted).
-  - **Format:** `.json`
-  - **Resolution:** 15min and 24h.  
+  - **Source:** NOAA, avialable through Rest API. [Documentation available here](https://www.ncdc.noaa.gov/cdo-web/webservices/v2#gettingStarted) for version 1 and trough [FTP for version 2](https://www1.ncdc.noaa.gov/pub/data/hpd/auto/v2/beta/15min/).
+  - **Format:** `.json` for version 1 and `.csv` for version 2.
+  - **Resolution:** 15min  
   - **Purpose:** Main input feature used to select storm events for modeling.  
   - **Relevant Attributes:**
     - `date`: date of end of observation in local time. Format: YYYY-MM-DDTHH:MM:SS.
     - `value`: the precipitation amount.
-    - `datatype`: indicates wether `value` is the volume of precipitation accumulated as recorded in the station for the 15min period (QGAG) or the amount of precipitation recorded for the 15 minute period (QPCP).
-    - `attributes`: flags. _HT_: tenths of inches. _HI_: hundredths of inches. _MM_: tenths of millimeters.
-  - **Documentation**: [Available here](https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00505/html), [and here](../pdf/PRECIP_15_documentation.pdf).
+    - `datatype`: indicates wether `value` is the volume of precipitation accumulated as recorded in the station for the 15min period (**QGAG**) or the amount of precipitation recorded for the 15 minute period (**QPCP**).
+    - `Flags`:  _HT_: tenths of inches. _HI_: hundredths of inches. _MM_: tenths of millimeters.
+  - **Documentation**: [Available here](https://www.ncei.noaa.gov/metadata/geoportal/rest/metadata/item/gov.noaa.ncdc:C00505/html), [and here](../pdf/PRECIP_15_documentation.pdf) for version 1 and [here for version 2](https://www1.ncdc.noaa.gov/pub/data/hpd/auto/v2/beta/15min/readme.15min.txt).
 
 ## 3. Integration into Machine Learning Workflow
 
