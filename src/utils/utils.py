@@ -28,6 +28,7 @@ def process_notebook(input_path):
     Load a Jupyter Notebook, clear outputs from all code cells, and save it with a modified extension.
     
     Args:
+    -----
         input_path (str): Path to the input .ipynb file.
     """
     # Load the notebook
