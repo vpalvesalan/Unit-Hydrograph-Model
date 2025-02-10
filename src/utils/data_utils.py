@@ -24,8 +24,8 @@ def glimpse(df: pd.DataFrame, return_df: bool = False) -> pd.DataFrame | None:
     """
     # Print the number of rows and columns
     print(f"Rows: {df.shape[0]}")
-    print(f"Data columns (total {df.shape[1]} columns):")
-    
+    print(f"Columns: {df.shape[1]}")
+
     if return_df:
         # Optionally return the transposed preview with data types
         glimpse_df = (
@@ -36,15 +36,19 @@ def glimpse(df: pd.DataFrame, return_df: bool = False) -> pd.DataFrame | None:
         return glimpse_df
     else:
         # Print details for each column
-        col_info = []
+        col_info = ['                              Null Count   Dtype         First Values',
+                    '                              ----------   ------        ------------']
         for col in df.columns:
+            col_edited = col
             null_count = df[col].isnull().sum()
             dtype = df[col].dtype
             first_values = df[col].head().values
+            if len(col)>29:
+                col_edited = col_edited[:27] + '...'
 
             # Convert first values to strings for better formatting
             first_values_str = ', '.join(map(str, first_values))
-            col_info.append(f"  {col:<30} Null Count {null_count:<3}  Dtype: {str(dtype):<8} [{first_values_str}]")
+            col_info.append(f"{col_edited:<29} {null_count:<11}  {str(dtype):<13} [{first_values_str}]")
         
         # Print each column's info
         for col in col_info:
