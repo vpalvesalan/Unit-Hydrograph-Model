@@ -35,9 +35,18 @@ def glimpse(df: pd.DataFrame, return_df: bool = False) -> pd.DataFrame | None:
         )
         return glimpse_df
     else:
+        #Find length of each printing column
+        dtypes = df.dtypes.astype(str).tolist()
+        dtypes_len = max(len(dtype) for dtype in dtypes) + 1
+
+        columns = df.columns.astype(str).tolist()
+        columns_len = max(len(col) for col in columns) + 1
+        if columns_len > 29:
+            columns_len = 29
+
         # Print details for each column
-        col_info = ['                              Null Count   Dtype         First Values',
-                    '                              ----------   ------        ------------']
+        col_info = [' '*columns_len + ' Null Count  Dtype' + ' '*(dtypes_len-4) + 'First Values',
+                    ' '*columns_len + ' ----------  -----' + ' '*(dtypes_len-4) + '-------------']
         for col in df.columns:
             col_edited = col
             null_count = df[col].isnull().sum()
@@ -48,7 +57,7 @@ def glimpse(df: pd.DataFrame, return_df: bool = False) -> pd.DataFrame | None:
 
             # Convert first values to strings for better formatting
             first_values_str = ', '.join(map(str, first_values))
-            col_info.append(f"{col_edited:<29} {null_count:<11}  {str(dtype):<13} [{first_values_str}]")
+            col_info.append(f"{col_edited:<{columns_len}} {null_count:<10}  {str(dtype):<{dtypes_len}} [{first_values_str}]")
         
         # Print each column's info
         for col in col_info:
