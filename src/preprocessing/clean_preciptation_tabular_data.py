@@ -1,6 +1,6 @@
 import pandas as pd
 
-def unpivot_v2(df: pd.DataFrame) -> pd.DataFrame:
+def unpivot_preciptation_v2_data(df: pd.DataFrame) -> pd.DataFrame:
     """
     Transforms a v2 precipitation wide-format DataFrame into a long-format DataFrame by unpivoting columns, 
     cleaning the data, and restructuring it for easier analysis.
@@ -54,5 +54,15 @@ def unpivot_v2(df: pd.DataFrame) -> pd.DataFrame:
         'DATE':'date',
         'Val':'height'
     }, axis='columns')
+
+    # Drop columns
+    keep_columns = ['date','height']
+    df_final = df_final[keep_columns]
+
+    # Parse datetime column
+    df_final['date'] = pd.to_datetime(df_final['date'], format='%Y-%m-%d %H%M')
+
+    # Replace null values
+    df_final['height'] = df_final['height'].replace(-9999,pd.NA)
     
-    df_final
+    return df_final
