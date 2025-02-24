@@ -12,6 +12,8 @@ def unpivot_preciptation_v2_data(df: pd.DataFrame) -> pd.DataFrame:
     4. Extracts 'Attribute' from the 'Time_Attribute' column.
     5. Pivots the data to separate out different measurements.
     6. Renames the columns for clarity.
+    7. Replace -9999 (null values) by NA
+    8. Filter out observation prior to year 2014
 
     Args:
     -----
@@ -64,5 +66,9 @@ def unpivot_preciptation_v2_data(df: pd.DataFrame) -> pd.DataFrame:
 
     # Replace null values
     df_final['height'] = df_final['height'].replace(-9999,pd.NA)
+
+    # Filter by date
+    cutoff_date = pd.to_datetime('20140101')
+    df_final = df_final[df_final['date']>=cutoff_date]
     
     return df_final
